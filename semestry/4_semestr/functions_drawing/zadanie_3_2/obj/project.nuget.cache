@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "4tyYKQFzcfQ3qz8FVOdNI9YwH/NMBNldcKb+Ya9v1OiqCc/dv5k3PXYh02+GtFLarGSx3/d++VaI9Ui4dKgZzw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\olakr\\Desktop\\STUDIA\\semestr_4\\net\\lista_4\\zadanie_3\\zadanie_3_2\\zadanie_3_2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\olakr\\.nuget\\packages\\winforms.datavisualization\\1.9.2\\winforms.datavisualization.1.9.2.nupkg.sha512",
+    "C:\\Users\\olakr\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\olakr\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\olakr\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\olakr\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.29\\microsoft.netcore.app.host.win-x64.6.0.29.nupkg.sha512"
+  ],
+  "logs": []
+}
