@@ -1,0 +1,34 @@
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.csproj.AssemblyReference.cache
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.Properties.Resources.resources
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.csproj.GenerateResource.cache
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.csproj.CoreCompileInputs.cache
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\bin\Debug\komis.exe.config
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\bin\Debug\komis.exe
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\bin\Debug\komis.pdb
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.exe
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.pdb
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.Okno_menu.resources
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.Okno_dodaj.resources
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.Okno_usun.resources
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.Okno_edytuj.resources
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.Okno_pokaz_wszystkie.resources
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.Okno_wyszukaj.resources
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.Okno_edytuj_samochod.resources
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_3\komis\komis\obj\Debug\komis.Okno_input_filtr.resources
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\bin\Debug\komis.exe.config
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\bin\Debug\komis.exe
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\bin\Debug\komis.pdb
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.csproj.AssemblyReference.cache
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.Okno_edytuj.resources
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.Okno_edytuj_samochod.resources
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.Okno_input_filtr.resources
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.Okno_menu.resources
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.Okno_dodaj.resources
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.Okno_pokaz_wszystkie.resources
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.Okno_usun.resources
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.Properties.Resources.resources
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.Okno_wyszukaj.resources
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.csproj.GenerateResource.cache
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.csproj.CoreCompileInputs.cache
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.exe
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_3\komis\komis\obj\Debug\komis.pdb
