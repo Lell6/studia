@@ -1,0 +1,93 @@
+section .text
+    global _start
+
+section .data
+    info_1 db 'Podaj liczbe: ', 0
+    len_info_1 equ $-info_1
+
+section .bss
+    operation_char resb 1
+    
+    one_str resb 32
+    one_int resb 32
+    
+    result_str resb 32
+
+section .text
+_start:
+
+    mov     eax, 4
+    mov     ebx, 1
+    mov     ecx, info_1
+    mov     edx, len_info_1-1
+    int     0x80
+
+    mov     eax, 3
+    mov     ebx, 0
+    mov     ecx, one_str
+    mov     edx, 10
+    int     0x80
+    
+    mov     ebx, one_str
+    mov     ecx, one_int
+    call    str_to_int
+    call    int_to_str
+    
+    mov     eax, 4
+    mov     ebx, 1
+    mov     ecx, [result_str]
+    mov     edx, 10
+    int     0x80
+    
+    mov     eax, 1
+    int     0x80
+    
+    
+str_to_int:
+    mov     eax, 0
+    mov     edx, 0
+
+convert_loop:
+    movzx   esi, byte [ebx + edx]
+    test    esi, esi
+    jz      convert_done
+
+    cmp     esi, '0'
+    jl      skip_char
+    cmp     esi, '9'
+    jg      skip_char
+
+    sub     esi, '0'
+    imul    eax, 10
+    add     eax, esi
+
+skip_char:
+    inc     edx
+    jmp     convert_loop
+
+convert_done:
+    mov     dword [ecx], eax
+    ret
+    
+int_to_str:
+    mov     eax, [one_int]   
+    mov     ebx, 10          
+    mov     ecx, 10          
+
+    mov     edi, result_str  
+    add     edi, 10             
+    mov     byte [edi], 0    
+
+convert_loop_str:
+    dec     edi                
+    xor     edx, edx         
+    div     ebx               
+
+    add     dl, '0'          
+    mov     [edi], dl         
+
+    test    eax, eax           
+    jnz     convert_loop_str   
+
+    mov     [result_str], edi   
+    ret    

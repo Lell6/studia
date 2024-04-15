@@ -1,0 +1,242 @@
+section .text
+    global _start
+
+section .data
+    info_1 db 'Podaj 1 liczbe: ', 0
+    len_info_1 equ $-info_1
+    
+    info_2 db 'Podaj 2 liczbe: ', 0
+    len_info_2 equ $-info_2
+    
+    info_3 db 'Podaj znak +,-,*,/,: ', 0
+    len_info_3 equ $-info_3
+    
+    info_4 db 'Wynik: ', 0
+    len_info_4 equ $-info_4
+
+    star db '*'
+    no_v db '-'
+
+section .bss
+    operation_char resb 1
+    
+    one_str resb 32
+    one_int resb 32
+    
+    two_str resb 32
+    two_int resb 32
+    
+    result_int resb 32
+    result_str resb 32
+
+section .text
+_start:
+
+;   <FIRST NUMBER>
+    mov     eax, 4
+    mov     ebx, 1
+    mov     ecx, info_1
+    mov     edx, len_info_1-1
+    int     0x80
+
+    mov     eax, 3
+    mov     ebx, 0
+    mov     ecx, one_str
+    mov     edx, 10
+    int     0x80
+    
+    mov     ebx, one_str
+    mov     ecx, one_int
+    call    str_to_int
+    
+;   <SECOND NUMBER> 
+    mov     eax, 4
+    mov     ebx, 1
+    mov     ecx, info_2
+    mov     edx, len_info_2-1
+    int     0x80
+
+    mov     eax, 3
+    mov     ebx, 0
+    mov     ecx, two_str
+    mov     edx, 10
+    int     0x80
+
+    mov     ebx, two_str
+    mov     ecx, two_int
+    call    str_to_int
+
+;   <OPERATION>
+    mov     eax, 4
+    mov     ebx, 1
+    mov     ecx, info_3
+    mov     edx, len_info_3-1
+    int     0x80
+    
+    mov     eax, 3
+    mov     ebx, 0
+    mov     ecx, operation_char
+    mov     edx, 1
+    int     0x80
+    
+    mov     edx, dword [one_int]
+    mov     ebx, dword [two_int]
+    
+;   <CHOOSING>
+    cmp     byte [operation_char], '+'
+    je      addition
+    
+    cmp     byte [operation_char], '-'
+    je      substraction
+    
+    cmp     byte [operation_char], '*'
+    je      multiplication
+    
+    cmp     byte [operation_char], '/'
+    je      division
+    
+;   <PRINT RESULT>
+print_result:
+    call    int_to_str
+
+    mov     eax, 4
+    mov     ebx, 1
+    mov     ecx, info_4
+    mov     edx, len_info_4-1
+    int     0x80
+
+    ; Prepare parameters for the write syscall
+    mov     eax, 4           
+    mov     ebx, 1            
+    mov     ecx, [result_str]   
+    mov     edx, 32            
+    int     0x80              
+
+    mov eax, 1
+    int 0x80
+    
+    
+;   <ADDITION one - edx, two - ebx>
+addition:
+    add     edx, ebx
+    mov     [result_int], edx
+    jmp     print_result
+
+
+;   <SUBSTRACTION one - edx, two - ebx>
+substraction:
+    sub     edx, ebx
+    mov     [result_int], edx
+    jmp     print_result
+    
+    
+;   <MULTIPLICATION WITH BITSHIFTS one - edx, two - ebx>
+multiplication:
+    mov     ecx, 32            
+    xor     eax, eax            
+    
+multiply_loop:
+    test    ebx, 1
+    jnz     adding
+
+shift:  
+    shr     ebx, 1
+    shl     edx, 1
+
+    dec     ecx
+    cmp     ecx, 0
+    jne     multiply_loop
+    jmp     print_result
+
+adding:
+    add     [result_int], edx 
+    jmp     shift
+
+
+;   <DIVISION WITH BITSHIFTS one - edx, two - ebx>
+division:
+    xor     ecx, ecx
+    mov     eax, 1
+
+counting_dividend:
+    cmp     edx, 0
+    je      counting_divisor
+    
+    shr     edx, 1
+    inc     ecx
+    
+    jmp     counting_dividend
+    
+counting_divisor:
+    mov     ebx, [two_int]
+    
+    imul    ebx, eax
+    cmp     ebx, dword [one_int]
+    jge     done
+    
+    inc     eax
+    jmp     counting_divisor
+
+done:
+    cmp     ebx, dword [one_int]
+    jg      dec_a
+    jmp     return
+    
+dec_a:
+    dec     eax
+    jmp     return
+    
+return:
+    mov     [result_int], eax
+    jmp     print_result
+    
+;   <STRING TO DECIMAL INTEGER>
+str_to_int:
+    mov     eax, 0
+    mov     edx, 0
+
+convert_loop:
+    movzx   esi, byte [ebx + edx]
+    test    esi, esi
+    jz      convert_done
+
+    cmp     esi, '0'
+    jl      skip_char
+    cmp     esi, '9'
+    jg      skip_char
+
+    sub     esi, '0'
+    imul    eax, 10
+    add     eax, esi
+
+skip_char:
+    inc     edx
+    jmp     convert_loop
+
+convert_done:
+    mov     dword [ecx], eax
+    ret
+    
+;   <DECIMAL INTEGER TO STRING>    
+int_to_str:
+    mov     eax, [result_int]  
+    mov     ebx, 10          
+    mov     ecx, 10          
+
+    mov     edi, result_str   
+    add     edi, 10             
+    mov     byte [edi], 0     
+
+convert_loop_str:
+    dec     edi                
+    xor     edx, edx        
+    div     ebx              
+
+    add     dl, '0'           
+    mov     [edi], dl          
+
+    test    eax, eax          
+    jnz     convert_loop_str   
+
+    mov     [result_str], edi   
+    ret    

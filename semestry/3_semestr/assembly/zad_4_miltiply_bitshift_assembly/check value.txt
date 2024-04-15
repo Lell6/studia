@@ -1,0 +1,19 @@
+    mov ecx, 0b1111111111111   ; Binary pattern to check (6 bits)
+    and ecx, edx        ; Mask out unwanted bits
+    cmp ecx, 0b1100010011111   ; Compare with the binary pattern
+    
+    je true
+    jne false
+    
+true:
+    mov eax, 4         ; syscall: write
+    mov ebx, 1         ; file descriptor: STDOUT (1)
+    mov ecx, star; pointer to the string
+    mov edx, 1        ; length of the string
+    int 0x80 
+false:
+    mov eax, 4         ; syscall: write
+    mov ebx, 1         ; file descriptor: STDOUT (1)
+    mov ecx, no_v; pointer to the string
+    mov edx, 1        ; length of the string
+    int 0x80 

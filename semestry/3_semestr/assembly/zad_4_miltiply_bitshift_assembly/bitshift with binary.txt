@@ -1,0 +1,246 @@
+section .text
+    global _start
+
+section .data
+    info_1 db 'Podaj 1 liczbe: ', 0
+    len_info_1 equ $-info_1
+    
+    info_2 db 'Podaj 2 liczbe: ', 0
+    len_info_2 equ $-info_2
+    
+    info_3 db 'Podaj znak +,-,*,/,: ', 0
+    len_info_3 equ $-info_3
+
+    nl db 10
+    star db '*'
+    no_v db '-'
+
+section .bss
+    one_str resb 32
+    one_dec_int resb 32
+    one_bin_int resb 32
+    
+    two_str resb 32
+    two_dec_int resb 32
+    two_bin_int resb 32
+    
+    result_bin resb 32
+    result_str_bin resb 32
+    result_str_int resb 32
+
+section .text
+_start:
+
+
+;   <FIRST NUMBER>
+    mov     eax, 4
+    mov     ebx, 1
+    mov     ecx, info_1
+    mov     edx, len_info_1-1
+    int     0x80
+
+    mov     eax, 3
+    mov     ebx, 0
+    mov     ecx, one_str
+    mov     edx, 10
+    int     0x80
+    
+    mov     ebx, one_str
+    mov     ecx, one_dec_int
+    call    str_to_int
+    call    dec_to_bin
+    
+    mov     ebx, result_str_bin
+    call    str_to_bin
+    mov     dword [one_bin_int], edx
+    
+    
+;   <CLEAR STRING>
+    mov     ecx, 32            ; Number of bytes in the string
+    mov     edi, result_str_bin      ; Destination address (address of the string)
+    xor     eax, eax           ; Set EAX to 0 (null character)
+    rep     stosb              ; Store EAX (null character) in ECX bytes starting at EDI
+    
+    
+;   <SECOND NUMBER> 
+    mov     eax, 4
+    mov     ebx, 1
+    mov     ecx, info_2
+    mov     edx, len_info_2-1
+    int     0x80
+
+    mov     eax, 3
+    mov     ebx, 0
+    mov     ecx, two_str
+    mov     edx, 10
+    int     0x80
+
+    mov     ebx, two_str
+    mov     ecx, two_dec_int
+    call    str_to_int
+    call    dec_to_bin
+    
+    mov     ebx, result_str_bin
+    call    str_to_bin
+    mov     dword [two_bin_int], edx
+
+    mov     edx, dword [one_bin_int]
+    mov     ebx, dword [two_bin_int]
+    call    multiply
+    
+print_result:
+    call    bin_to_int
+    call    int_to_str
+
+    ; Prepare parameters for the write syscall
+    mov     eax, 4         ; syscall: write
+    mov     ebx, 1         ; file descriptor: STDOUT (1)
+    mov     ecx, dword [result_str_int]; pointer to the string
+    mov     edx, 32        ; length of the string
+    int     0x80           ; software interrupt
+    
+    jmp     exit
+    
+;   <MULTIPLICATION WITH BITSHIFTS>
+multiply:
+    mov     ecx, 32  ; Set the maximum number of iterations (assuming a 32-bit register)
+    xor     eax, eax ; Clear a register for storing the current bit value
+    
+multiply_loop:
+    test    ebx, 1
+    jnz     adding
+
+shift:  
+    shr     ebx, 1
+    shl     edx, 1
+
+    dec     ecx
+    cmp     ecx, 0
+    jne     multiply_loop
+    jmp     print_result
+
+adding:
+    add     dword [result_bin], edx    ; Add the shifted value to the result
+    jmp     shift
+
+
+;   <ADDITION>
+
+;   <SUBSTRACTION>
+
+;   <DIVISION>
+
+;   <STRING TO DECIMAL INTEGER>
+str_to_int:
+    mov     eax, 0
+    mov     edx, 0
+
+convert_loop:
+    movzx   esi, byte [ebx + edx]
+    test    esi, esi
+    jz      convert_done
+
+    cmp     esi, '0'
+    jl      skip_char
+    cmp     esi, '9'
+    jg      skip_char
+
+    sub     esi, '0'
+    imul    eax, 10
+    add     eax, esi
+
+skip_char:
+    inc     edx
+    jmp     convert_loop
+
+convert_done:
+    ret
+    
+    
+;   <DECIMAL INTEGER TO BINARY STRING>
+dec_to_bin:
+    mov     ecx, 32  ; Set loop counter to 32 (number of bits in a DWORD)
+
+convert_loop_dec:
+    shr     eax, 1  ; Shift right to get the least significant bit
+    jc      set_bit  ; Jump if carry flag is set (least significant bit is 1)
+    mov     byte [result_str_bin + ecx - 1], '0'  ; Store '0' in binary string
+    jmp     next_iteration  ; Jump to next iteration
+
+set_bit:
+    mov     byte [result_str_bin + ecx - 1], '1'  ; Store '1' in binary string
+
+next_iteration:
+    loop    convert_loop_dec  ; Continue looping until ecx is 0
+  ret
+  
+  
+;   <BINARY STRING TO BINARY INTEGER>
+str_to_bin:
+    xor     edx, edx        ; Initialize binary result to 0
+
+convert_loop_bin:
+    movzx   ecx, byte [ebx]   ; Load the next character into ecx
+    cmp     ecx, 0              ; Check if it's the null terminator
+    je      done_conversion
+
+    sub     ecx, '0'            ; Convert ASCII character to integer ('0' -> 0, '1' -> 1, etc.)
+    shl     edx, 1              ; Shift the current binary result to the left (multiply by 2)
+    or      edx, ecx            ; OR the converted digit into the result
+
+    inc     ebx                 ; Move to the next character in the string
+    jmp     convert_loop_bin        ; Repeat the process for the next character
+
+done_conversion:
+    ret
+    
+    
+;   <BINARY INTEGER TO DECIMAL INTEGER>
+bin_to_int:
+    mov     eax, dword [result_bin]
+
+    ; Convert binary to decimal
+    mov     ebx, 1  ; Initialize the multiplier
+    mov     ecx, 0  ; Initialize the decimal result
+
+convert_loop_bin_int:
+    test    eax, 1  ; Check the least significant bit
+    jz      skip_addition  ; If LSB is 0, skip addition
+    add     ecx, ebx  ; Add the multiplier to the result
+
+skip_addition:
+    shl     ebx, 1  ; Multiply the multiplier by 2
+    shr     eax, 1  ; Shift the binary number to the right
+
+    cmp     eax, 0  ; Check if the binary number is fully converted
+    jne     convert_loop_bin_int  ; If not, continue the conversion
+    ret    
+    
+    
+;   <DECIMAL INTEGER TO STRING>    
+int_to_str:
+    mov     eax, ecx      ; Load the integer to be converted
+    mov     ebx, 10             ; Set divisor to 10
+    mov     ecx, 10             ; Set counter for the number of digits in the result
+    
+    mov     edi, result_str_int        ; Set destination address for the string
+    add     edi, 10            ; Move the pointer to the end of the buffer
+    mov     byte [edi], 0       ; Null-terminate the string
+    
+convert_loop_str_int:
+    dec     edi                 ; Move the pointer back one position
+    xor     edx, edx            ; Clear any previous remainder
+    div     ebx                 ; Divide eax by 10, result in eax, remainder in edx
+    
+    add     dl, '0'             ; Convert remainder to ASCII
+    mov     [edi], dl           ; Store ASCII character in the string
+    
+    test    eax, eax           ; Check if quotient is zero
+    jnz     convert_loop_str_int        ; If not, continue the loop
+    
+    mov     dword [result_str_int], edi      ; Save the address of the resulting string
+ret    
+  
+exit:
+    mov eax, 1
+    int 0x80
