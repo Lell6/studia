@@ -1,4 +1,4 @@
-PRok=jekt indywidualny z 1 semestru studiów
+Projekt indywidualny z 1 semestru studiów
 Kod napisany w C, wykorzystując Code::Blocks
 
 Program zarządza zadaniami zdefiniowanymi w odpowiednich plikach binarnych
