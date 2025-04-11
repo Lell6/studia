@@ -4,7 +4,7 @@ Projekty na system Android
 3. Implementacja aplikacji do wyswietlania pogody na podstawie danych z api
 
 Projekt bazodanowy oparty na Slim framework
-Projekt implementacji systemu zarządzania planetarium
+Projekt implementacji systemu zarządzania planetarium. Wykorzystuje xampp do hostowania razem z php w wersji 8.2.12. Baza danych jest na MS SQL 
 
 Projekt bazowanowy opraty na Java
 Projekt implementacji prostego web forum (podobnie do Stack Overflow)
