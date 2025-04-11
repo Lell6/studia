@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/css/index.css?v=1.1">
+    <title>Twoje bilety</title>
+</head>
+
+<body>
+    <div class="header">
+        <a href="/">
+            <div class="logo">
+                <h1>Planetarium <i class="material-icons">rocket_launch</i></h1>
+            </div>
+        </a>
+        <div class="panel panelRight">
+            <div>
+                <a href="/" class="linkButton smallLink">
+                    <i class="material-icons">home</i>
+                    <p>Strona główna</p>
+                </a>
+                <a href="/user" class="linkButton smallLink">
+                    <i class="material-icons">person</i>
+                    <p>Twój Profil</p>
+                </a>
+                <a href="/logout" class="linkButton smallLink">
+                    <i class="material-icons">logout</i>
+                    <p>Wyloguj się</p>
+                </a>
+                <a href="/cart" class="linkButton smallLink">
+                    <i class="material-icons">shopping_cart</i>
+                    <p>Kosz</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>Lista twoich biletów</h3>
+        <div class="adminPanel panelRight">
+            <a href="/user" class="linkButton smallLink">
+                <i class="material-icons">arrow_back</i>
+                <p>Wróć do&nbsp;profilu</p>
+            </a>
+        </div>
+    </div>
+        
+    <div class="content">
+        {% for error in errors %}
+            <h5 class="bg">{{ error }}</h5>
+        {% endfor %}
+        
+        {% if tickets %}
+        <table class="table" id="data_table">
+            <thead>
+                <tr>
+                    <th>Zawartość biletu</th>
+                    <th data-column="Status" style="width: 200px">Status</th>
+                    <th data-column="Id">Id Biletu</th>
+                    <th data-column="Date">Data Czas Utworzenia</th>
+                    <th data-column="Payment">Metoda Płatności</th>
+                    <th data-column="Price">Cena</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for ticket in tickets %}
+                {% if ticket.Status != 'W koszyku' %}
+                    <tr class="parent-row">
+                        <td class="dt-control">
+                            <h5 class="actionLink">Pokaż</h5>
+                        </td>
+                        <td data-column="Status">
+                            {{ ticket.Status }}
+                            {% if ticket.Status != 'Prośba o Anulowanie' and ticket.Status != 'Potwierdzono Anulowanie' %}
+                                <br><a class="actionLink" href="/cancel/ticket/{{ ticket.Id }}">Anuluj bilet</a>   
+                            {% endif %}
+                        </td>
+                        <td data-column="Id">{{ ticket.Id }}</td>
+                        <td data-column="Date">{{ ticket.Data_Czas_Utworzenia }}</td>
+                        <td data-column="Payment">{{ ticket.Metoda_Płatności }}</td>
+                        <td data-column="Price">{{ ticket.Cena }} zł</td>
+                    </tr>
+
+                    {% for wyklad in ticket.Wykłady %}
+                    <tr class="child-row" style="display: none">
+                        <td>
+                            <strong>Id Pozycji:</strong> {{ wyklad.Wykład_Id }}<br>
+                            <strong>Tytuł Wykładu:</strong> {{ wyklad.Tytuł }}<br>        
+                            <strong>Status:</strong> {{ wyklad.Status }}<br>
+
+                            {% if wyklad.Status == 'Zatwierdzono' %}  
+                            <a class="actionLink" href="/cancel/lecture/{{ wyklad.Wykład_Id }}">Anuluj wykład</a><br>
+                            {% endif %}              
+                            {% if ticket.Status == 'W koszyku' %}
+                                <a class="actionLink" href="/remove/ticket/{{ wyklad.Wykład_Id }}">Usuń</a>
+                            {% endif %}
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <h3>Brak biletów</h3>
+        {% endif %}
+    </div>
+    
+    <script src="/js/showLinkName.js"></script>
+    <script src="/js/showTicketContent.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

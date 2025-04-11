@@ -1,0 +1,208 @@
+body {
+    padding: 20px 10%;
+    background-color: #ffefff;
+}
+
+body * {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #E4B1F0;
+}
+
+*, *::before, *::after {
+    box-sizing: content-box;
+}
+
+a * {
+    color: #efef50;
+} 
+
+.header {
+    margin: 0 0 20px 0;
+}
+
+.header > * {
+    display: inline-block;
+}
+
+.panel * {
+    display: inline-block;
+    width: auto;
+}
+
+.panelRight {
+    float: right;
+}
+
+.linkButton {
+    position: relative; 
+    background-color: #433878;
+    overflow: hidden;
+}
+
+.smallLink {    
+    height: 20px;
+    width: 70px;
+    padding: 10px;
+}
+
+.smallLink i {
+    font-size: xx-large;
+}
+
+.largeLink {
+    padding: 20px;
+    min-height: 150px;
+}
+
+.largeLink > i {
+    font-size: 96px;
+}
+
+.visibleLink {
+    height: 50px;
+}
+
+.linkButton p {    
+    display: none;
+}
+
+.linkButton i {    
+    display: block;
+}
+
+.linkButton p, .linkButton i {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.linkButton p {
+    font-size: small;
+}
+
+.linkButton:hover{
+    background-color: #7E60BF;
+}
+
+.grid {
+    margin: 20px 0 0 0;
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.actionLink {
+    color: #efef50;
+    background-color: #7E60BF;
+    padding: 5px;
+}
+
+.actionLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.shortProfile {
+    background-color: #7E60BF;
+    grid-column: span 2;
+}
+
+.shortProfileSingle {
+    background-color: #7E60BF;
+    grid-column: span 1;
+}
+
+.shortProfile > * {
+    margin: 10px;
+    display: block;
+    text-align: center;
+}
+
+h3, .logo *{
+    color: #efef50;
+}
+
+.logo *{
+    background-color: #472a87;
+    padding: 10px;
+}
+
+.bg {
+    background-color: #7E60BF;
+}
+
+h3 {
+    background-color: #7E60BF;
+    text-align: center;
+}
+
+#deleteUserForm {
+    display: none;
+    background-color: rgba(146, 146, 142, 0.6);
+}
+
+.centerForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #433878;
+    padding: 30px;
+}
+
+.centerForm {
+    display: grid;
+    grid-template-rows: 40px 0.1fr 1fr 40px;
+    gap: 20px;
+}
+
+.fullSpan {
+    width: 100%; 
+    grid-column: 1 / -1;
+}
+
+.formPart > * {
+    width: 100%;
+}
+
+.table tr {
+    height: 45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.parent-row > td {
+    border-width: 2px 0 0 0;
+    border-color: #aaa;
+    border-style: solid;
+    background-color: #472a87;
+    color: #FFE1FF;
+}
+
+.child-row > td {
+    background-color: #7E60BF;
+}
+
+input {
+    color: #7E60BF;
+}
+
+input[type="submit"] {
+    margin: 10px 0 0 0;
+}
+
+input[type="submit"], button, input[type="button"], select, option {
+    background-color: #7E60BF;
+    color: #efef50;
+}
+
+input[type="submit"]:hover, button:hover, input[type="button"]:hover {
+    background-color: #efef50;
+    color: #7E60BF;
+}
