@@ -1,1 +1,9 @@
-java, C#, maybe server stuff
+Projekty na pisane na C# w środowisku Visual Studio
+1. Projekt do rysowania wykresów funkcji
+2. Projekt do zarządzania komisem
+3. Projekt implementujący edytor tekstowy
+4. Projekt implementujący zachowanie programu Total Commander
+5. Gra w kółko/krzyżyk
+
+Projekt napisany w Java w środowisku IntelliJ
+Projekt implementujący przebieg gry w monopolly (Zasady Eurobisnes)
