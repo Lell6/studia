@@ -1,0 +1,36 @@
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\total_commander.exe
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\total_commander.deps.json
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\total_commander.runtimeconfig.json
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\total_commander.runtimeconfig.dev.json
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\total_commander.dll
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\ref\total_commander.dll
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\total_commander.pdb
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.csproj.AssemblyReference.cache
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.Okno_glowne.resources
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.csproj.GenerateResource.cache
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.AssemblyInfoInputs.cache
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.AssemblyInfo.cs
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.csproj.CoreCompileInputs.cache
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.dll
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\ref\total_commander.dll
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.pdb
+C:\Users\olakr\Desktop\STUDIA\semestr_4\net\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.genruntimeconfig.cache
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\total_commander.exe
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\total_commander.deps.json
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\total_commander.runtimeconfig.json
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\total_commander.runtimeconfig.dev.json
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\total_commander.dll
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\ref\total_commander.dll
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\bin\Debug\net5.0-windows\total_commander.pdb
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.csproj.AssemblyReference.cache
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.Okno_glowne.resources
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.csproj.GenerateResource.cache
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.GeneratedMSBuildEditorConfig.editorconfig
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.AssemblyInfoInputs.cache
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.AssemblyInfo.cs
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.csproj.CoreCompileInputs.cache
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.dll
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\ref\total_commander.dll
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.pdb
+D:\games\My\Folder\studia\IV_semestr\net c#\lista_5\total_commander\total_commander\obj\Debug\net5.0-windows\total_commander.genruntimeconfig.cache
